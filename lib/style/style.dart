@@ -1,7 +1,7 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
 const colorYellow=Color.fromRGBO(255, 192, 0, 1);
 const colorRed = Color.fromRGBO(231, 28, 36, 1);
 const colorDark = Color.fromRGBO(136, 28, 32, 1);
@@ -25,26 +25,32 @@ TextStyle ButtonTextStyle() {
     color: Colors.white
   );
 }
-TextStyle AppText16Style() {
+TextStyle AppText16Style(textColor) {
   return TextStyle(
     fontWeight: FontWeight.w400,
     fontFamily: 'poppins',
     fontSize: 16,
-    color: Colors.black
+      color: textColor
   );
 }
-TextStyle AppText28Style() {
+TextStyle AppText28Style(textcolor) {
+
   return TextStyle(
+    color: textcolor,
     fontWeight: FontWeight.w400,
     fontFamily: 'poppins',
     fontSize: 28,
+
+
   );
 }
-TextStyle AppText9Style() {
+TextStyle AppText9Style(textColor) {
   return TextStyle(
     fontWeight: FontWeight.w400,
     fontFamily: 'poppins',
     fontSize: 9,
+    color: textColor
+
   );
 }
 

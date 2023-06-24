@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "754184274374",
+    "project_id": "foodshopflutter",
+    "storage_bucket": "foodshopflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754184274374:android:76d14c6bd10043dd9df2c7",
+        "android_client_info": {
+          "package_name": "com.example.foodshopapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754184274374-gnhekhgvb45g7uj087m0fggc3r2vitc8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKabDqNQeA28bm_yvqe1h-XzHG8IqbmcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754184274374-gnhekhgvb45g7uj087m0fggc3r2vitc8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
