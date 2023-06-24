@@ -22,7 +22,7 @@ void main() async {
   else{
     await Firebase.initializeApp();
   }
-  runApp( MyApp('/registration_screen'));
+  runApp( MyApp('/login_screen'));
 }
 
 

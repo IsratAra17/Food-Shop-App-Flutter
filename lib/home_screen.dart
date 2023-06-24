@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:foodshopapp/style/style.dart';
 
@@ -11,16 +12,32 @@ class Home_Screen extends StatefulWidget {
 class _Home_ScreenState extends State<Home_Screen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Container(
-      child: ElevatedButton(
-          style: AppButtonStyle(),
-          onPressed: () {
-            setState(() {
-              Navigator.pushNamed(context, "/login_screen");
+    return Scaffold(
+      appBar: AppBar(
+          actions: [
+          IconButton(
+          onPressed: () async {
+    await FirebaseAuth.instance.signOut();
+    SuccessToast("You are now logged Out");
 
-            });
-          },
-          child: SuccessButtonChild('Login'),),
-    ),),);
+    Navigator.pushNamed(context, "/login_screen");
+    },
+      icon: Icon(Icons.logout_outlined,color: Colors.purple,),
+    ),]
+      ),
+      body: Center(
+        child: Container(
+          child: ElevatedButton(
+            style: AppButtonStyle(),
+            onPressed: () {
+              setState(() {
+                Navigator.pushNamed(context, "/login_screen");
+              });
+            },
+            child: SuccessButtonChild('Login'),
+          ),
+        ),
+      ),
+    );
   }
 }
