@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:foodshopapp/main_food_screen/main_food_page.dart';
 
 import 'authentication_screens/login.dart';
 import 'authentication_screens/registration.dart';
@@ -22,7 +23,8 @@ void main() async {
   else{
     await Firebase.initializeApp();
   }
-  runApp( MyApp('/login_screen'));
+
+  runApp(MyApp('/mainFoodpage'));
 }
 
 
@@ -36,11 +38,12 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/login_screen',
+      initialRoute:'/mainFoodpage',
       routes: {
         '/registration_screen': (context) =>Registration_Screen(),
         '/login_screen': (context) =>Login_Screen(),
         '/home_screen': (context) =>Home_Screen(),
+        '/mainFoodpage': (context) =>MainFoodPage(),
       },
     );
   }

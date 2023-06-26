@@ -10,6 +10,8 @@ class Home_Screen extends StatefulWidget {
 }
 
 class _Home_ScreenState extends State<Home_Screen> {
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,8 +27,26 @@ class _Home_ScreenState extends State<Home_Screen> {
       icon: Icon(Icons.logout_outlined,color: Colors.purple,),
     ),]
       ),
-      body: Center(
-        child: Container(
+      body: Center(child:
+Column(
+  children: [
+
+    TextFormField(
+      controller: _emailController,
+      decoration: AppInputDecoration("Email Address"),
+    ),
+    SizedBox(
+      height: 20,
+    ),
+    TextFormField(
+      controller: _passwordController,
+      decoration: AppInputDecoration("Password"),
+    ),
+    SizedBox(
+      height: 20,
+    ),
+
+         Container(
           child: ElevatedButton(
             style: AppButtonStyle(),
             onPressed: () {
@@ -37,7 +57,11 @@ class _Home_ScreenState extends State<Home_Screen> {
             child: SuccessButtonChild('Login'),
           ),
         ),
+        ]
       ),
+
+)
+
     );
   }
 }

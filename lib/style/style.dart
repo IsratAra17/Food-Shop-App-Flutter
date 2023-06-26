@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-const colorYellow=Color.fromRGBO(255, 192, 0, 1);
+const colorYellow = Color.fromRGBO(255, 192, 0, 1);
 const colorRed = Color.fromRGBO(231, 28, 36, 1);
 const colorDark = Color.fromRGBO(136, 28, 32, 1);
 const colorGreen = Color.fromRGBO(33, 191, 115, 1);
@@ -12,46 +12,44 @@ const colorWhite = Color.fromRGBO(255, 255, 255, 1.0);
 const colorDarkBlue = Color.fromRGBO(44, 62, 80, 1.0);
 const colorLightGray = Color.fromRGBO(135, 142, 150, 1.0);
 const colorLight = Color.fromRGBO(211, 211, 211, 1.0);
-const colorLightPink = Color.fromRGBO(255, 231, 211,1);
-const colorLightBlue = Color.fromRGBO(106, 199, 188,1);
-const colorLightYellow = Color.fromRGBO(255, 210, 109,1);
-
+const colorLightPink = Color.fromRGBO(255, 231, 211, 1);
+const colorLightBlue = Color.fromRGBO(106, 199, 188, 1);
+const colorLightYellow = Color.fromRGBO(255, 210, 109, 1);
 
 TextStyle ButtonTextStyle() {
   return TextStyle(
-    fontWeight: FontWeight.w400,
-    fontFamily: 'poppins',
-    fontSize: 14,
-    color: Colors.white
-  );
+      overflow: TextOverflow.ellipsis,
+      fontWeight: FontWeight.w400,
+      fontFamily: 'poppins',
+      fontSize: 14,
+      color: Colors.white);
 }
+
 TextStyle AppText16Style(textColor) {
   return TextStyle(
-    fontWeight: FontWeight.w400,
-    fontFamily: 'poppins',
-    fontSize: 16,
-      color: textColor
-  );
+      overflow: TextOverflow.ellipsis,
+      fontWeight: FontWeight.w400,
+      fontFamily: 'poppins',
+      fontSize: 16,
+      color: textColor);
 }
-TextStyle AppText28Style(textcolor) {
 
+TextStyle AppText20Style(textcolor) {
   return TextStyle(
-    color: textcolor,
-    fontWeight: FontWeight.w400,
-    fontFamily: 'poppins',
-    fontSize: 28,
-
-
-  );
+      color: textcolor,
+      fontWeight: FontWeight.w400,
+      fontFamily: 'poppins',
+      fontSize: 20,
+      overflow: TextOverflow.ellipsis);
 }
+
 TextStyle AppText9Style(textColor) {
   return TextStyle(
-    fontWeight: FontWeight.w400,
-    fontFamily: 'poppins',
-    fontSize: 9,
-    color: textColor
-
-  );
+      fontWeight: FontWeight.w400,
+      fontFamily: 'poppins',
+      fontSize: 9,
+      overflow: TextOverflow.ellipsis,
+      color: textColor);
 }
 
 void SuccessToast(msg) {
@@ -76,6 +74,7 @@ void ErrorToast(msg) {
     fontSize: 16.0,
   );
 }
+
 InputDecoration AppInputDecoration(label) {
   return InputDecoration(
     focusedBorder: const OutlineInputBorder(
@@ -100,6 +99,7 @@ ButtonStyle AppButtonStyle() {
       textStyle: ButtonTextStyle(),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)));
 }
+
 Ink SuccessButtonChild(String ButtonText) {
   return Ink(
     decoration: BoxDecoration(
@@ -112,5 +112,13 @@ Ink SuccessButtonChild(String ButtonText) {
         style: ButtonTextStyle(),
       ),
     ),
+  );
+}
+
+Container AppBoxDecoration(height, width, child) {
+  return Container(
+    decoration: BoxDecoration(
+        color: colorLightBlue, borderRadius: BorderRadius.circular(5)),
+    child: child,
   );
 }

@@ -39,6 +39,7 @@ dependencies:
   firebase_auth: 4.1.0
   firebase_core: ^2.2.0
   cloud_firestore: ^4.0.5
+  firebase_storage:
   firebase_core_platform_interface: 4.5.2
   fluttertoast: ^8.1.2
 

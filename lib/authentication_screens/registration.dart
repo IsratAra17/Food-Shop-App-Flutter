@@ -37,7 +37,7 @@ SuccessToast("Registerd Successfully!");
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Food Shop', style: AppText28Style(colorDarkBlue)),
+            Text('Food Shop', style: AppText20Style(colorDarkBlue)),
             SizedBox(
               height: 1,
             ),

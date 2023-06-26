@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../firebase_authentication/firebase_authentication.dart';
 import '../style/style.dart';
 
 class Login_Screen extends StatefulWidget {
@@ -25,7 +24,7 @@ class _Login_ScreenState extends State<Login_Screen> {
       password: _passwordController.text.trim(),
     );
     SuccessToast("Successfully Login");
-    Navigator.pushNamed(context, "/home_screen");
+    Navigator.pushNamed(context, "/mainFoodpage");
   }
 
 
@@ -40,7 +39,7 @@ class _Login_ScreenState extends State<Login_Screen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            Text('Food Shop', style: AppText28Style(Colors.blue)),
+            Text('Food Shop', style: AppText20Style(Colors.blue)),
             SizedBox(
               height: 1,
             ),
