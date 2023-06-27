@@ -15,18 +15,7 @@ class _Home_ScreenState extends State<Home_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          actions: [
-          IconButton(
-          onPressed: () async {
-    await FirebaseAuth.instance.signOut();
-    SuccessToast("You are now logged Out");
 
-    Navigator.pushNamed(context, "/login_screen");
-    },
-      icon: Icon(Icons.logout_outlined,color: Colors.purple,),
-    ),]
-      ),
       body: Center(child:
 Column(
   children: [
