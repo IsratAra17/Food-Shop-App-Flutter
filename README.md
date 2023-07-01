@@ -1,4 +1,4 @@
-# foodshopapp
+# foodshopapp E-commerce
 
 - Use Firebase for authentication, storage, and real-time database.
 - Getx state management solution for managing app state.
@@ -6,7 +6,7 @@
 - Implement a clean and user-friendly UI design.
 
 
-## Getting Started
+## Description
 
 1. Authentication:
    - Customers and sellers should be able to register and log in using their email and password.
