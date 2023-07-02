@@ -18,7 +18,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
       body: Container(
 
 height: double.infinity,
-        margin: EdgeInsets.only(top: 45, bottom: 15),
+        margin: EdgeInsets.only(top: 15, bottom: 15),
         padding: EdgeInsets.only(left: 20, right: 20),
         child: Column(
 
@@ -31,7 +31,7 @@ height: double.infinity,
                     children: [
                       Text(
                         "Bangladesh",
-                        style: AppText20Style(colorLightBlue),
+                        style: AppText16Style(colorLightBlue),
                       ),
                       Row(
                         children: [
@@ -47,8 +47,18 @@ height: double.infinity,
                       )
                     ],
                   ),
-                  AppBoxDecoration(
-                      50, 80, Icon(Icons.search, color: colorWhite)),
+                  Expanded(flex: 4,
+                    child: TextFormField(
+
+                      decoration: InputDecoration(
+                          suffixIcon: Icon(Icons.search,color: colorGreen,),
+                          filled: true,
+                          fillColor: colorWhite,
+                          hintText: "Search anything...",
+                          hintStyle: TextStyle(color: Colors.grey)),
+                    ),
+                  ),
+
                 ],
               ),
             ),

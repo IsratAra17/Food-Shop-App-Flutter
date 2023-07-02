@@ -43,6 +43,7 @@ dependencies:
   firebase_core_platform_interface: 4.5.2
   fluttertoast: ^8.1.2
   curved_navigation_bar:
+  carousel_slider:
 
 
 dev_dependencies:

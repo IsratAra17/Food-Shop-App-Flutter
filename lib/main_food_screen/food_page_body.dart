@@ -1,8 +1,10 @@
 import 'dart:html';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:foodshopapp/model/productmodel.dart';
 import 'package:foodshopapp/style/style.dart';
 
 class FoodPageBody extends StatefulWidget {
@@ -15,26 +17,37 @@ class FoodPageBody extends StatefulWidget {
 class _FoodPageBodyState extends State<FoodPageBody> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      //padding: EdgeInsets.only(left: 15.0),
+    return CarouselSlider.builder(
+              itemCount: 7,
+              itemBuilder:
+                  (BuildContext context, int itemIndex, int pageViewIndex) =>
+                      Container(
+                child: Container(
+                  margin: EdgeInsets.all(6.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: DecorationImage(
+                      image: NetworkImage( "${productList[itemIndex].image}"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+              options: CarouselOptions(
       height: 320,
-color: colorRed,
-      child: PageView.builder(
-          itemCount: 10,
-          itemBuilder: (BuildContext context, position) {
-            return _buildListItem(position);
-          }),
-    );
-  }
+      enlargeCenterPage: true,
+      autoPlay: true,
+      aspectRatio: 16 / 9,
+      autoPlayCurve: Curves.fastOutSlowIn,
+      enableInfiniteScroll: true,
+      autoPlayAnimationDuration: Duration(milliseconds: 800),
+      viewportFraction: 0.8,
+    ),
 
-  Widget _buildListItem(int index) {
-    return Container(
-      height: 220,
-      margin: EdgeInsets.all(15),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-        color: index.isEven?(colorOrange):(colorLightPink),
-      ),
-    );
+            );
+            //3rd Image of Slider
+
+
+
   }
 }

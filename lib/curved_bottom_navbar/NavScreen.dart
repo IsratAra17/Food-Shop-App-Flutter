@@ -8,7 +8,7 @@ import 'package:foodshopapp/home_screen.dart';
 import 'package:foodshopapp/main_food_screen/main_food_page.dart';
 
 import 'package:foodshopapp/oderPage.dart';
-import 'package:foodshopapp/productPage.dart';
+import 'package:foodshopapp/product/productPage.dart';
 import 'package:foodshopapp/view_category.dart';
 
 
@@ -20,6 +20,7 @@ class NavDefaultScreen extends StatefulWidget {
 }
 
 class _NavDefaultScreenState extends State<NavDefaultScreen> {
+
   List<Widget> pages=[
     MainFoodPage(),
     Product_Page(),
