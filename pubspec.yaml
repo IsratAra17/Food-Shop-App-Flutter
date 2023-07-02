@@ -44,6 +44,8 @@ dependencies:
   fluttertoast: ^8.1.2
   curved_navigation_bar:
   carousel_slider:
+  get: ^4.6.5
+
 
 
 dev_dependencies:

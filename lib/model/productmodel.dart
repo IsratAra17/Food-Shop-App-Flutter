@@ -20,8 +20,7 @@ List<ProductModel> productList = [
     details:
         "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the",
     id: 1,
-    image:
-        "https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+    image:"https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80",
     name: "Fish Curry",
     price: 120,
   ),
@@ -74,6 +73,13 @@ image:"https://images.unsplash.com/photo-1579954115545-a95591f28bfc?ixlib=rb-4.0
     "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the",
     id: 7,
 image: "https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+    name: "Orange juice",
+    price: 120,
+  ),ProductModel(
+    details:
+    "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the",
+    id: 8,
+image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80",
     name: "Orange juice",
     price: 120,
   ),
