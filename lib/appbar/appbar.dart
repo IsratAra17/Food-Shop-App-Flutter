@@ -2,10 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:foodshopapp/curved_bottom_navbar/appbottomNav.dart';
 import 'package:foodshopapp/style/style.dart';
 
 AppBar CustomAppBar(context) {
-  return AppBar( backgroundColor:colorLightBlue,actions: [
+  return AppBar(backgroundColor: colorLightBlue, actions: [
     IconButton(
       onPressed: () async {
         await FirebaseAuth.instance.signOut();
@@ -17,6 +18,6 @@ AppBar CustomAppBar(context) {
         Icons.logout_outlined,
         color: Colors.yellowAccent,
       ),
-    ),
+    )
   ]);
 }

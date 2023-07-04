@@ -28,7 +28,7 @@ TextStyle ButtonTextStyle() {
 TextStyle AppText16Style(textColor) {
   return TextStyle(
       overflow: TextOverflow.ellipsis,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.bold,
       fontFamily: 'poppins',
       fontSize: 16,
       color: textColor);
@@ -37,7 +37,7 @@ TextStyle AppText16Style(textColor) {
 TextStyle AppText20Style(textcolor) {
   return TextStyle(
       color: textcolor,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.normal,
       fontFamily: 'poppins',
       fontSize: 20,
       overflow: TextOverflow.ellipsis);

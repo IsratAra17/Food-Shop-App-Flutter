@@ -1,17 +1,26 @@
 
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:foodshopapp/firebase_authentication/const%20firebase.dart';
 import 'package:foodshopapp/model/productmodel.dart';
 import 'package:get/get.dart';
 
 
 class CartController extends GetxController{
-
   List<ProductModel>cartList=[];
 
-  addToCart(ProductModel productModel){
+
+
+  addToCart(ProductModel productModel)async{
+
     cartList.add(productModel);
+
     getTotal();
     update();
+
+
   }
 
   removeFromCart(int index){
@@ -28,7 +37,7 @@ class CartController extends GetxController{
 
   var netTotal;
 
-    getTotal(){
+  getTotal(){
     netTotal = cartList!.map((item) => item.price!.toInt() * item.quantity )
         .reduce((value, element) => value+element);
     update();

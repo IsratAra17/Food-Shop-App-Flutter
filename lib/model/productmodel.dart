@@ -15,7 +15,7 @@ class ProductModel {
   });
 }
 
-List<ProductModel> productList = [
+List<ProductModel>productList = [
   ProductModel(
     details:
         "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the",

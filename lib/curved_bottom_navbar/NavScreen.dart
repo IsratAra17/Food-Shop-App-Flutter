@@ -8,6 +8,7 @@ import 'package:foodshopapp/home_screen.dart';
 import 'package:foodshopapp/main_food_screen/main_food_page.dart';
 
 import 'package:foodshopapp/oderPage.dart';
+import 'package:foodshopapp/product/cart_page.dart';
 import 'package:foodshopapp/product/productPage.dart';
 import 'package:foodshopapp/view_category.dart';
 
@@ -25,7 +26,7 @@ class _NavDefaultScreenState extends State<NavDefaultScreen> {
     MainFoodPage(),
     Product_Page(),
     Category_page(),
-    Order_Page(),
+    CartPage(),
     Admin_Profile_Page()
   ];
   int TabIndex = 0;

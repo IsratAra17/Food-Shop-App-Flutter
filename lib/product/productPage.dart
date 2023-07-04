@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodshopapp/model/productmodel.dart';
@@ -7,6 +9,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 import '../style/style.dart';
+import 'cart_page.dart';
 
 class Product_Page extends StatefulWidget {
   const Product_Page({Key? key}) : super(key: key);
@@ -16,18 +19,42 @@ class Product_Page extends StatefulWidget {
 }
 
 class _Product_PageState extends State<Product_Page> {
+  final Stream<QuerySnapshot> _usersStream =
+      FirebaseFirestore.instance.collection('foodshop').snapshots();
+
+  var cartid, cartname, cartprice;
   CartController cartController = Get.put(CartController());
 
+  sendDataFirestore(id, foodname, price) async {
+    //FirebaseStorage _storage = FirebaseStorage.instance;
+
+    await FirebaseFirestore.instance
+        .collection('cartItem')
+        .doc()
+        .set({'id': cartid, 'itemName': cartname, 'price': cartprice});
+  }
+
+  // FirebaseStrem()
+  // {
+  //   StreamBuilder<QuerySnapshot>(
+  //       stream: _usersStream,
+  //       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot)
+  //   {
+  //     if (snapshot.hasError) {
+  //       return Text('Something went wrong');
+  //     }
+  //
+  //     if (snapshot.connectionState == ConnectionState.waiting) {
+  //       return Text("Loading");
+  //     }
+  //   }
+  //   );
+  // }
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
-      appBar: AppBar(title: GetBuilder<CartController>(
-        builder: (controoler) {
-          return Text("toatl cart item is ${cartController.cartList.length}");
-        },
-      )),
       body: Container(
         padding: EdgeInsets.all(0),
         child: Column(
@@ -48,24 +75,30 @@ class _Product_PageState extends State<Product_Page> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text("${productList[index].name}",style: AppText20Style(Colors.green),),
-
+                            Text(
+                              "${productList[index].name}",
+                              style: AppText16Style(Colors.green),
+                            ),
                             AspectRatio(
                               child: Image.network(
                                 "${productList[index].image}",
                                 fit: BoxFit.contain,
-
                               ),
                               aspectRatio: 2.0,
                             ),
-                            SizedBox(height: 5,),
+                            SizedBox(
+                              height: 5,
+                            ),
                             Container(
                               padding: EdgeInsets.all(5),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("${productList[index].price}",style: AppText16Style(colorBlue),),
+                                  Text(
+                                    "${productList[index].price}",
+                                    style: AppText16Style(colorBlue),
+                                  ),
                                   InkWell(
                                     onTap: () {
                                       try {
@@ -82,29 +115,53 @@ class _Product_PageState extends State<Product_Page> {
                                       } catch (e) {
                                         cartController
                                             .addToCart(productList[index]);
+                                        cartid = productList[index];
+                                        cartname = productList[index].name;
+                                        cartprice = productList[index].price;
+                                        sendDataFirestore(
+                                            cartid, cartname, cartprice);
+                                        print(
+                                            "You have added ${productList[index].name},Price:${cartprice}");
                                       }
                                     },
-                                    child: Icon(Icons.shopping_basket,color: colorRed,),
+                                    child: Icon(Icons.shopping_basket),
                                   )
                                 ],
                               ),
                             ),
-
                           ],
                         ),
                       );
                     })),
-
-            // MaterialButton(onPressed: (){
-            //   Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CartPage(
-            //
-            //   )));
-            // },
-            //   child: Text("Go To Cart"),
-            //   color: Colors.red,
-            //   minWidth: double.infinity ,
-            //   height: size.height *0.1 ,
-            // )
+            Container(
+                padding: EdgeInsets.all(5),
+                width: double.infinity,
+                height: size.height * 0.1,
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GetBuilder<CartController>(
+                        builder: (controoler) {
+                          return Text(
+                            "Total Cart item is ${cartController.cartList.length}",
+                            style: AppText16Style(Colors.green),
+                          );
+                        },
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        child: ElevatedButton(
+                          style: AppButtonStyle(),
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => CartPage()));
+                          },
+                          child: SuccessButtonChild(
+                            "Go To Cart",
+                          ),
+                        ),
+                      ),
+                    ]))
           ],
         ),
       ),

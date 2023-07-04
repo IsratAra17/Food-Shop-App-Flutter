@@ -6,7 +6,7 @@ import '../style/style.dart';
 
 
 
-BottomNavigationBar appBottomNav(currentIndex,onTapItem){
+BottomNavigationBar appBottomNav(currentIndex,onTapItem,label){
   return BottomNavigationBar(
     currentIndex: currentIndex,
     selectedItemColor: Colors.black,
