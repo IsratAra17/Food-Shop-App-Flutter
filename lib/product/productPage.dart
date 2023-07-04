@@ -34,22 +34,7 @@ class _Product_PageState extends State<Product_Page> {
         .set({'id': cartid, 'itemName': cartname, 'price': cartprice});
   }
 
-  // FirebaseStrem()
-  // {
-  //   StreamBuilder<QuerySnapshot>(
-  //       stream: _usersStream,
-  //       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot)
-  //   {
-  //     if (snapshot.hasError) {
-  //       return Text('Something went wrong');
-  //     }
-  //
-  //     if (snapshot.connectionState == ConnectionState.waiting) {
-  //       return Text("Loading");
-  //     }
-  //   }
-  //   );
-  // }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;

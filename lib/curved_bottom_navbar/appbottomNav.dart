@@ -6,21 +6,22 @@ import '../style/style.dart';
 
 
 
-BottomNavigationBar appBottomNav(currentIndex,onTapItem,label){
-  return BottomNavigationBar(
-    currentIndex: currentIndex,
-    selectedItemColor: Colors.black,
-    unselectedItemColor: Colors.blue,
-    onTap:onTapItem ,
-    items: [
-      BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
-      BottomNavigationBarItem(icon: Icon(Icons.category),label: "category"),
-      BottomNavigationBarItem(icon: Icon(Icons.radar),label: "Product"),
-      BottomNavigationBarItem(icon: Icon(Icons.shopping_cart),label: "Order"),
-      BottomNavigationBarItem(icon: Icon(Icons.person),label: "Profile"),
-    ],
-  );
-}
+// BottomNavigationBar appBottomNav(currentIndex,onTapItem,label){
+//   return BottomNavigationBar(
+//     currentIndex: currentIndex,
+//     selectedItemColor: Colors.black,
+//     unselectedItemColor: Colors.blue,
+//     onTap:onTapItem ,
+//     items: [
+//       BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
+//       BottomNavigationBarItem(icon: Icon(Icons.category),label: "category"),
+//       BottomNavigationBarItem(icon: Icon(Icons.radar),label: "Product"),
+//       BottomNavigationBarItem(icon: Icon(Icons.shopping_cart),label: "Order"),
+//       BottomNavigationBarItem(icon: Icon(Icons.person),label: "Profile"),
+//       BottomNavigationBarItem(icon: Icon(Icons.reviews),label: "Review"),
+//     ],
+//   );
+// }
 
 
 
@@ -40,6 +41,8 @@ CurvedNavigationBar appCurvedNavbar(ontapItem){
       Icon(Icons.category,semanticLabel: "Category",color: colorGreen,),
       Icon(Icons.shopping_cart,semanticLabel: "Order",color: Colors.lightBlue,),
       Icon(Icons.person,semanticLabel: "Profile",color: Colors.deepPurple,),
+      Icon(Icons.reviews,semanticLabel: "Profile",color: Colors.orange,)
+
     ],
   );
 }

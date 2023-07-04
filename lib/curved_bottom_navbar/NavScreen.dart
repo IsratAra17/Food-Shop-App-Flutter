@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:foodshopapp/adminProfilePage.dart';
 import 'package:foodshopapp/appbar/appbar.dart';
 import 'package:foodshopapp/curved_bottom_navbar/appbottomNav.dart';
+import 'package:foodshopapp/feedback/showFeedback.dart';
 import 'package:foodshopapp/home_screen.dart';
 import 'package:foodshopapp/main_food_screen/main_food_page.dart';
 
@@ -27,7 +28,8 @@ class _NavDefaultScreenState extends State<NavDefaultScreen> {
     Product_Page(),
     Category_page(),
     CartPage(),
-    Admin_Profile_Page()
+    Admin_Profile_Page(),
+    Show_Feedback()
   ];
   int TabIndex = 0;
 
