@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodshopapp/appbar/appbar.dart';
+import 'package:foodshopapp/feedback/feedback.dart';
 import 'package:foodshopapp/main_food_screen/food_page_body.dart';
 import 'package:foodshopapp/style/style.dart';
 
@@ -20,51 +21,56 @@ class _MainFoodPageState extends State<MainFoodPage> {
 height: double.infinity,
         margin: EdgeInsets.only(top: 15, bottom: 15),
         padding: EdgeInsets.only(left: 20, right: 20),
-        child: Column(
+        child: Expanded(flex:1,
+          child: Column(
 
-          children: [
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      Text(
-                        "Bangladesh",
-                        style: AppText16Style(colorLightBlue),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "Dhaka",
-                            style: AppText16Style(Colors.black),
-                          ),
-                          Icon(
-                            Icons.location_on_outlined,
-                            color: colorRed,
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                  Expanded(flex: 4,
-                    child: TextFormField(
-
-                      decoration: InputDecoration(
-                          suffixIcon: Icon(Icons.search,color: colorGreen,),
-                          filled: true,
-                          fillColor: colorWhite,
-                          hintText: "Search anything...",
-                          hintStyle: TextStyle(color: Colors.grey)),
+            children: [
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Text(
+                          "Bangladesh",
+                          style: AppText16Style(colorLightBlue),
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "Dhaka",
+                              style: AppText16Style(Colors.black),
+                            ),
+                            Icon(
+                              Icons.location_on_outlined,
+                              color: colorRed,
+                            ),
+                          ],
+                        )
+                      ],
                     ),
-                  ),
+                    Expanded(flex: 4,
+                      child: TextFormField(
 
-                ],
+                        decoration: InputDecoration(
+                            suffixIcon: Icon(Icons.search,color: colorGreen,),
+                            filled: true,
+                            fillColor: colorWhite,
+                            hintText: "Search anything...",
+                            hintStyle: TextStyle(color: Colors.grey)),
+                      ),
+                    ),
+
+                  ],
+                ),
               ),
-            ),
-            SizedBox(height: 20,),
-            FoodPageBody()
-          ],
+              SizedBox(height: 20,),
+              Expanded(flex:2,child:FoodPageBody()),
+              SizedBox(height: 10,),
+              Expanded(flex:3,child: Feedback_Screen())
+
+            ],
+          ),
         ),
       ),
     );
