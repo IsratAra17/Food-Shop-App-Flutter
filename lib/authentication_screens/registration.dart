@@ -1,10 +1,16 @@
+import 'dart:html';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:foodshopapp/main.dart';
+import 'package:foodshopapp/main.dart';
 import 'package:get/get.dart';
 
+import '../main.dart';
+import '../main.dart';
 import '../style/style.dart';
 
 class Registration_Screen extends StatefulWidget {
@@ -20,6 +26,7 @@ class _Registration_ScreenState extends State<Registration_Screen> {
   TextEditingController _nameController = TextEditingController();
 
   Future registerWithEmailPass() async {
+
     await FirebaseAuth.instance
         .createUserWithEmailAndPassword(
       email: _emailController.text.trim(),
@@ -27,10 +34,12 @@ class _Registration_ScreenState extends State<Registration_Screen> {
     ).then((value) => {FirebaseFirestore.instance
         .collection("users")
         .doc()
-        .set({'name':_nameController.text.trim()})});
+        .set({
+      'name':_nameController.text.trim(),
+    })});
 SuccessToast("Registerd Successfully!");
     // Navigator.pushNamed(context, "/NavScreen");
-    Get.offNamed("/NavScreen");
+    Get.offNamed("/login_screen");
 
   }
 

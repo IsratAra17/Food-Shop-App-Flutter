@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:foodshopapp/main.dart';
 import 'package:foodshopapp/model/productmodel.dart';
 import 'package:foodshopapp/product/controller/cart_controller.dart';
 import 'package:get/get.dart';
@@ -26,14 +28,23 @@ class _Product_PageState extends State<Product_Page> {
   CartController cartController = Get.put(CartController());
 
   sendDataFirestore(id, foodname, price) async {
-    //FirebaseStorage _storage = FirebaseStorage.instance;
 
+    User? currentuser = FirebaseAuth.instance.currentUser;
     await FirebaseFirestore.instance
-        .collection('cartItem')
+        .collection("users")
+        .doc(currentuser?.email)
+        .collection("cartItem")
         .doc()
-        .set({'id': cartid, 'itemName': cartname, 'price': cartprice});
-  }
+        .set({
+      'id': cartid.text.trim(),
+      'itemName': cartname.text.trim(),
+      'price': cartprice.text.trim()
+    });
 
+    SuccessToast("Add to cart Successful!");
+print("User: ${currentuser?.email}");
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +120,8 @@ class _Product_PageState extends State<Product_Page> {
                                             "You have added ${productList[index].name},Price:${cartprice}");
                                       }
                                     },
-                                    child: Icon(Icons.shopping_basket),
+                                    child: Icon(Icons.favorite_border_sharp,
+                                        color: colorRed),
                                   )
                                 ],
                               ),
