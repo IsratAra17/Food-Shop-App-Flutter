@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../style/style.dart';
 
@@ -15,15 +17,20 @@ class Registration_Screen extends StatefulWidget {
 class _Registration_ScreenState extends State<Registration_Screen> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  TextEditingController _nameController = TextEditingController();
 
- Future registerWithEmailPass() async {
+  Future registerWithEmailPass() async {
     await FirebaseAuth.instance
         .createUserWithEmailAndPassword(
-        email: _emailController.text.trim(),
+      email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
-    );
+    ).then((value) => {FirebaseFirestore.instance
+        .collection("users")
+        .doc()
+        .set({'name':_nameController.text.trim()})});
 SuccessToast("Registerd Successfully!");
-    Navigator.pushNamed(context, "/home_screen");
+    // Navigator.pushNamed(context, "/NavScreen");
+    Get.offNamed("/NavScreen");
 
   }
 
@@ -37,11 +44,18 @@ SuccessToast("Registerd Successfully!");
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Food Shop', style: AppText20Style(colorDarkBlue)),
+            Text('Food Shop', style: AppText16Style(Colors.blue)),
             SizedBox(
               height: 1,
             ),
-            Text('Eat Code & Eat', style: AppText16Style(colorLightGray)),
+            Text('Eat Code & Eat', style: AppText16Style(colorRed)),
+            SizedBox(
+              height: 20,
+            ),
+            TextFormField(
+              controller: _nameController,
+              decoration: AppInputDecoration("Your Name:"),
+            ),
             SizedBox(
               height: 20,
             ),
@@ -69,6 +83,21 @@ SuccessToast("Registerd Successfully!");
                   },
                   child: SuccessButtonChild('Register')),
             ),
+            SizedBox(height: 15,),
+            InkWell(
+              onTap: (){
+                Get.toNamed("/login_screen");
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+
+                children: [
+                  Text("Already registerd?",style: AppText16Style(colorDarkBlue),),
+                  Text(" Please Login",style: AppText16Style(Colors.blue),),
+                ],
+              ),
+            )
+
           ],
         ),
       ),

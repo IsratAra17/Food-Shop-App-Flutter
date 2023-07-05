@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../style/style.dart';
 
@@ -17,16 +18,27 @@ class _Login_ScreenState extends State<Login_Screen> {
 
 
   Future LoginWithEmailPass() async {
+    try {
+      final User? firebaseUser = (await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
 
 
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _emailController.text.trim(),
-      password: _passwordController.text.trim(),
-    );
-    SuccessToast("Successfully Login");
-    Navigator.pushNamed(context, "/mainFoodpage");
+      )).user;
+      if(firebaseUser!=null) {
+        SuccessToast("Successfully Login");
+        Get.offNamed("/NavScreen");
+
+      }
+      else
+        {
+          print("Check email and password");
+        }
+    }on FirebaseAuthException catch(e){print("Error");}
+
+
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +83,21 @@ class _Login_ScreenState extends State<Login_Screen> {
                   },
                   child: SuccessButtonChild('Login')),
             ),
+
+            SizedBox(height: 15,),
+            InkWell(
+              onTap: (){
+                Get.toNamed("/registration_screen");
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+
+                children: [
+                  Text("Don't have an account?",style: AppText16Style(colorDarkBlue),),
+                  Text(" Sign Up",style: AppText16Style(Colors.blue),),
+                ],
+              ),
+            )
           ],
         ),
       ),
